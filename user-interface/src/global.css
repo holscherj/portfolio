@@ -1,0 +1,18 @@
+/* define global styles and variables within this file */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: var(--primary-font);
+}
+
+:root {
+  --primary-bg: #2B2D42;
+  --secondary-bg: #8D99AE;
+  --accent: #EF233C;
+  --detail: #EDF2F4;
+  --neutral-bg: #FFFFFF;
+  --primary-font: "Lato";
+  --secondary-font: "Merriweather";
+}

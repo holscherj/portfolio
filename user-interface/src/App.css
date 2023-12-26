@@ -157,6 +157,41 @@
   background-color: var(--neutral-bg);
 }
 
+#skills-text {
+  margin-bottom: 1rem;
+  font-family: var(--secondary-font);
+}
+
+.progress-container {
+  margin-bottom: 1rem;
+}
+
+.skill-name {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 1em;
+  margin-bottom: 0.5rem;
+}
+
+.progress-bar {
+  width: 100%;
+  background-color: #e0e0e0;
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+}
+
+.progress {
+  height: 20px;
+  background-color: var(--primary-bg);
+  transition: width 0.5s;
+  border-radius: 3px;
+}
+
+.skill, .level {
+  font-family: var(--secondary-font);
+}
+
 /* experience subsection */
 
 

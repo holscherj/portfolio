@@ -113,6 +113,26 @@ function App() {
       */}
       <section id="skills-container" className="subsection-container">
         <h3 className="subheading"> Skills </h3>
+        <p id="skills-text"> 
+          Welcome to the showcase of my technical proficiencies, a curated collection
+          of skills that I have honed throughout my academic and personal endeavors in 
+          the realm of computer science. This section is more than just a testament to
+          my expertise; it's a reflection of my journey in mastering various programming 
+          languages and technologies.
+        </p>
+        <div id="skill-bar-container">
+          <ProgressBar skill="Python" level="Advanced" percentage={100} />
+          <ProgressBar skill="C++" level="Advanced" percentage={100} />
+          <ProgressBar skill="HTML/CSS/JavaScript" level="Advanced" percentage={100} />
+          <ProgressBar skill="React.JS" level="Intermediate" percentage={80} />
+          <ProgressBar skill="Java/Android" level="Intermediate" percentage={75} />
+          <ProgressBar skill="Algorithms" level="Intermediate" percentage={75} />
+          <ProgressBar skill="Data Structures" level="Intermediate" percentage={65} />
+          <ProgressBar skill="Flask" level="Intermediate" percentage={60} />
+          <ProgressBar skill="C" level="Beginner" percentage={30} />
+          <ProgressBar skill="C#" level="Beginner" percentage={20} />
+        
+        </div>
       </section>
 
       {/* 
@@ -132,5 +152,27 @@ function App() {
     </div>
   );
 }
+
+/**
+ * Function for a reusable statis progress bar to represent
+ * my knowledge of various skills. 
+ * @param {String} skill The name of the skill
+ * @param {String} level The knowledge level of the skill
+ * @param {Integer} percentage The integer percentage of my knowledge for the bar
+ * @returns 
+ */
+const ProgressBar = ({ skill, level, percentage }) => {
+  return (
+    <div className="progress-container">
+      <div className="skill-name">
+        <p className="skill"> {skill} </p> 
+        <p className="level"> {level} </p>
+      </div>
+      <div className="progress-bar">
+        <div className="progress" style={{ width: `${percentage}%` }}></div>
+      </div>
+    </div>
+  );
+};
 
 export default App;

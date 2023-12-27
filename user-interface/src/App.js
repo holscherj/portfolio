@@ -87,7 +87,7 @@ function App() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  holsche2@msu.edu
+                  jackson-holscher
                 </a>
               </span>
               <span id="github-container">

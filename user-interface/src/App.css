@@ -5,11 +5,6 @@
   background-color: var(--detail);
 }
 
-.header-text {
-  color: var(--neutral-bg);
-  margin: 1rem 3rem;
-}
-
 .subsection-container {
   display: flex;
   flex-direction: column;
@@ -62,21 +57,14 @@
 
 #header-name {
   font-size: 4rem;
+  color: var(--neutral-bg);
+  margin: 0 3rem;
 }
 
-#header-desc {
+.header-desc {
   font-family: var(--secondary-font);
-}
-
-/* blinking text cursor animation */
-#header-desc::after {
-  content: "";
-  width: 5px;
-  height: 20px;
-  margin: 0px 5px;
-  background: var(--neutral-bg);
-  display: inline-block;
-  animation: cursor-blink 1.25s steps(2) infinite;
+  color: var(--neutral-bg);
+  margin: 1rem 3rem;
 }
 
 @keyframes cursor-blink {
@@ -176,7 +164,7 @@
 
 .progress-bar {
   width: 100%;
-  background-color: #e0e0e0;
+  background-color: var(--neutral-bg);
   border: 1px solid var(--accent);
   border-radius: 4px;
 }

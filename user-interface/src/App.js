@@ -1,11 +1,16 @@
 import './App.css';
 import { Fade } from "react-awesome-reveal";
 import { TypeAnimation } from "react-type-animation";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 import portrait from './assets/portrait.jpeg';
 import city_ico from './assets/house.svg';
 import email_ico from './assets/email.svg';
 import github_ico from './assets/github.svg';
 import linkedin_ico from './assets/linkedin.svg';
+import capstone_image from "./assets/reforestationmap.jpg";
+import sparty_gnome from "./assets/spartygnomeimage.png";
+import connectfour_image from "./assets/connectfourimage.png";
 
 
 /**
@@ -17,6 +22,11 @@ import linkedin_ico from './assets/linkedin.svg';
  * @returns The JSX constructing the portfolio webpage
  */
 function App() {
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const close = () => setModalOpen(false);
+  const open = () => setModalOpen(true);
+
   return (
     <div className="main-site-container">
       
@@ -33,12 +43,13 @@ function App() {
             <TypeAnimation 
               sequence={[
                 "I am a Developer",
-                1650,
+                2250,
                 "I am an Engineer",
-                1650,
+                2250,
                 "I am a Computer Scientist",
-                1650,
-                "I am a Problem Solver"
+                2250,
+                "I am a Problem Solver",
+                2250
               ]}
               wrapper='h2'
               className="header-desc"
@@ -153,6 +164,73 @@ function App() {
       */}
       <section className="subsection-container">
         <h3 className="subheading"> Experience </h3>
+        
+        <Fade triggerOnce cascade damping={0.05}>
+          <Experience
+            title="Computer Science Capstone"
+            subtitle="Auto-Owners Exposition Award Winner"
+            org="Anthropocene Institute"
+            loc="Palo Alto, CA"
+            start_date="August 2023"
+            end_date="December 2023"
+          >
+            <li className="experience-bullet">
+              Worked in a team, alongside the Anthropocene Institute, to develop a web
+              application that utilized machine learning for the optimization of carbon
+              dioxide removal from the atmosphere
+            </li>
+            <li className="experience-bullet">
+              Helped develop the responsive/interactive user-interface using React.JS
+              and Mapbox GL JS
+            </li>
+            <li className="experience-bullet">
+              Wrote various scripts to collect data from the web as well as formatting
+              the data that was collected into a GeoJson format.
+            </li>
+          </Experience>
+          <Experience
+            title="Undergraduate Teaching Assistant"
+            subtitle="CSE 477: Web Application Development"
+            org="Michigan State University"
+            loc="East Lansing, MI"
+            start_date="January 2023"
+            end_date="May 2023"
+          >
+            <li className="experience-bullet">
+              Worked in a team of peer assitants to advise a class of 180+ students on
+              various web application development techniques
+            </li>
+            <li className="experience-bullet">
+              Focuses on full-stack applications using HTML/CSS/JavaScript with a
+              Python Flask backend and a MySQL database
+            </li>
+            <li className="experience-bullet">
+              Held weekly helprooms and monitored/answered questions on the course's
+              question and answer form
+            </li>
+          </Experience>
+          <Experience
+            title="Golf Course Management Assistant"
+            subtitle="Indoor Operations (Seasonal Employee)"
+            org="The Loon Golf Resort"
+            loc="Gaylord, MI"
+            start_date="June 2022"
+            end_date="August 2023"
+          >
+            <li className="experience-bullet">
+              Oversaw day-to-day operations of the golf course to ensure steady
+              and smooth pace of play.
+            </li>
+            <li className="experience-bullet">
+              Answered phone calls to provide customers and resort guests with
+              assitance when needed, as well as to book tee times and reservations
+            </li>
+            <li className="experience-bullet">
+              Sold merchandise and equipment to the various golfers that we interested
+              in what the pro-shop had to offer.
+            </li>
+          </Experience>
+        </Fade>
       </section>
 
       {/* 
@@ -160,6 +238,29 @@ function App() {
       */}
       <section id="projects-container" className="subsection-container">
         <h3 className="subheading"> Projects </h3>
+        <div className='project-links'>
+          <ProjectButton 
+            onClick={() => (modalOpen ? close() : open())} 
+            image={capstone_image} 
+            desc="A link to the popup info window about my CSE Capstone project"
+          />
+
+          <ProjectButton 
+            onClick={() => (modalOpen ? close() : open())}
+            image={sparty_gnome}
+            desc="A link to the popup info window about my Sparty Gnome platformer game project"
+          />
+
+          <ProjectButton 
+            onClick={() => (modalOpen ? close() : open())}
+            image={connectfour_image}
+            desc="A link to the popup info window abouut my Connect Four mobile game project"
+          />
+
+          <AnimatePresence initial={false} mode="wait" onExitComplete={() => null}>
+            {modalOpen && <Modal modalOpen={modalOpen} handleClose={close} text="Test" />}
+          </AnimatePresence>
+        </div>
       </section>
 
     </div>
@@ -184,6 +285,92 @@ const ProgressBar = ({ skill, level, percentage }) => {
       <div className="progress-bar">
         <div className="progress" style={{ width: `${percentage}%` }}></div>
       </div>
+    </div>
+  );
+};
+
+/**
+ * A component for one section of the experience portion of my portfolio
+ * @param {*} props The data parameters that are passed thru the component tag
+ * @returns A section of the experience portion, highlighting what I did, where and when
+ */
+const Experience = (props) => {
+  return (
+    <div className='experience-container'>
+      <h4 className="experience-title"> {props.title} </h4>
+      <h5 className="experience-subtitle"> {props.subtitle} </h5>
+      <h5 className="experience-org"> <em> <b> {props.org} </b> ({props.loc}) </em>  </h5>
+      <h5 className="experience-date"> {props.start_date} - {props.end_date} </h5>
+
+      <ul className="experience-list">
+        {props.children}
+      </ul>
+    </div>
+  );
+};
+
+const Backdrop = ({ children, onClick }) => {
+  return (
+    <motion.div 
+      className='backdrop' 
+      onClick={onClick} 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      {children}
+    </motion.div>
+  );
+};
+
+const dropIn = {
+  hidden: {
+    y: "-100vh",
+    opacity: 0
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.1,
+      type: "spring",
+      damping: 25,
+      stiffness: 500
+    }
+  },
+  exit: {
+    y: "100vh",
+    opacity: 0
+  }
+};
+
+const Modal = ({ handleClose, text }) => {
+  return (
+    <Backdrop onClick={handleClose}>
+      <motion.div
+        onClick={(e) => e.stopPropagation()}
+        className="project-modal"
+        variants={dropIn}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+      >
+        <p> {text} </p>
+        <button onClick={handleClose}> Close </button>
+      </motion.div>
+    </Backdrop>
+  );
+};
+
+const ProjectButton = ({ image, desc, onClick }) => {
+  return (
+    <div className='project-button-container' onClick={onClick}>
+      <img
+        className='project-image'
+        src={image}
+        loading='lazy'
+        alt={desc}
+      />
     </div>
   );
 };

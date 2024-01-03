@@ -11,6 +11,7 @@ import linkedin_ico from './assets/linkedin.svg';
 import capstone_image from "./assets/reforestationmap.jpg";
 import sparty_gnome from "./assets/spartygnomeimage.png";
 import connectfour_image from "./assets/connectfourimage.png";
+import animation_image from "./assets/animationimage.png";
 
 
 /**
@@ -23,6 +24,12 @@ import connectfour_image from "./assets/connectfourimage.png";
  */
 function App() {
   const [modalOpen, setModalOpen] = useState(false);
+  const [currentProject, setCurrentProject] = useState({ title: '', desc: '' });
+
+  const openModalWithProject = (project) => {
+    setCurrentProject(project);
+    open();
+  };
 
   const close = () => setModalOpen(false);
   const open = () => setModalOpen(true);
@@ -238,29 +245,84 @@ function App() {
       */}
       <section id="projects-container" className="subsection-container">
         <h3 className="subheading"> Projects </h3>
-        <div className='project-links'>
-          <ProjectButton 
-            onClick={() => (modalOpen ? close() : open())} 
-            image={capstone_image} 
-            desc="A link to the popup info window about my CSE Capstone project"
-          />
+        <p id="projects-intro"> 
+          The following links contain information on various projects that I have worked on in 
+          different courses in the past. Through these assignments I have been able to apply my
+          learning in real-world development scenarios and challenges. Click on the images to view
+          a popup window with some more details on what the project entailed.
+        </p>
 
-          <ProjectButton 
-            onClick={() => (modalOpen ? close() : open())}
-            image={sparty_gnome}
-            desc="A link to the popup info window about my Sparty Gnome platformer game project"
-          />
-
-          <ProjectButton 
-            onClick={() => (modalOpen ? close() : open())}
-            image={connectfour_image}
-            desc="A link to the popup info window abouut my Connect Four mobile game project"
-          />
-
-          <AnimatePresence initial={false} mode="wait" onExitComplete={() => null}>
-            {modalOpen && <Modal modalOpen={modalOpen} handleClose={close} text="Test" />}
-          </AnimatePresence>
-        </div>
+        <Fade triggerOnce>
+          <div className='project-links'>
+            <ProjectButton
+              title="Carbon Mapp - CSE Capstone"
+              onClick={() => openModalWithProject({
+                title: "Carbon Mapp - CSE Capstone",
+                desc: "In my final year of college, I had the opportunity to work with the Anthropocene Insitute \
+                to develop a web application for them that focused on the optimization of carbon dioxide removal \
+                from the atmosphere. Using machine learning, my team and I were able to analyze large datasets \
+                containing geographical and financial data in order to determine the best locations in the country \
+                to implement three different carbon removal technologies: direct air capture, reforestation, and \
+                kelp farms. The output from the model is displayed on an interactive heatmap of the United States."
+              })}
+              image={capstone_image}
+              desc="A link to the popup info window about my CSE Capstone project"
+            />
+            <hr className='project-break'/>
+            <ProjectButton
+              title="Sparty Gnome Platformer - CSE 335 Project 1"
+              onClick={() => openModalWithProject({
+                title: "Sparty Gnome Platformer Game",
+                desc: "For the first project in my software design course, I worked in a group to develop \
+                a three-level platformer game, similar to Super Mario. Using OOP principles/design, my team \
+                and I implemented everything from scratch, including the movement, levels, enemies, and powerups."
+              })}
+              image={sparty_gnome}
+              desc="A link to the popup info window about my Sparty Gnome platformer game project"
+            />
+            <hr className='project-break'/>
+            <ProjectButton
+              title="Connect Four Mobile Game - CSE 476 Project 1"
+              onClick={() => openModalWithProject({
+                title: "Connect Four Online Mobile Game",
+                desc: "For the project in my mobile application design course, I worked with a group of peers \
+                to develop a fully online and responsive connect four game. After signing up, the users are \
+                prompted to sign in, which then puts them into the game room together. After playing and \
+                confirming their move, the game board is updated on the opposing device. The layout and user \
+                interface responds and changes to fit devices of all sizes."
+              })}
+              image={connectfour_image}
+              desc="A link to the popup info window abouut my Connect Four mobile game project"
+            />
+            <hr className='project-break' />
+            <ProjectButton
+              title="Animation System - CSE 335 Project 2"
+              onClick={() => openModalWithProject({
+                title: "Harold's Evil Laboratory - Animation System",
+                desc: "For the second project in my software design class, I worked individually to \
+                extend an animation system that we worked to develop earlier in the semester. \
+                The system comes with a set of pre-loaded scenes and actors, but allows for the addition \
+                of custom elements as well. Users can move/rotate the actors around the scenes, capturing \
+                keyframes as they go. Once finished, the animation/keyframe file can be saved, loaded, and \
+                played from the system."
+              })}
+              image={animation_image}
+              desc="A link to the popup info window about my animation system project"
+            />
+            <AnimatePresence initial={false} mode="wait" onExitComplete={() => null}>
+              {
+                modalOpen
+                &&
+                <Modal
+                  modalOpen={modalOpen}
+                  handleClose={close}
+                  text={currentProject.desc}
+                  title={currentProject.title}
+                />
+              }
+            </AnimatePresence>
+          </div>
+        </Fade>
       </section>
 
     </div>
@@ -344,7 +406,7 @@ const dropIn = {
   }
 };
 
-const Modal = ({ handleClose, text }) => {
+const Modal = ({ handleClose, text, title }) => {
   return (
     <Backdrop onClick={handleClose}>
       <motion.div
@@ -355,16 +417,18 @@ const Modal = ({ handleClose, text }) => {
         animate="visible"
         exit="exit"
       >
-        <p> {text} </p>
+        <h2 className='modal-title'> {title} </h2>
+        <p className='modal-text'> {text} </p>
         <button onClick={handleClose}> Close </button>
       </motion.div>
     </Backdrop>
   );
 };
 
-const ProjectButton = ({ image, desc, onClick }) => {
+const ProjectButton = ({ title, image, desc, onClick }) => {
   return (
     <div className='project-button-container' onClick={onClick}>
+      <h2 className='project-button-title'> {title} </h2>
       <img
         className='project-image'
         src={image}

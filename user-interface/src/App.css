@@ -242,14 +242,26 @@
 
 .project-modal {
   width: clamp(50%, 700px, 90%);
-  height: min(50%, 300px);
-  background-color: orange;
+  height: min(60%, 400px);
+  background-color: var(--primary-bg);
   margin: auto;
   padding: 0 2rem;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.modal-title {
+  color: #fff;
+  font-family: var(--secondary-font);
+  margin: 1rem 0;
+}
+
+.modal-text {
+  color: #fff;
+  font-family: var(--secondary-font);
+  margin: 1rem 0;
 }
 
 .project-button-container {
@@ -276,6 +288,25 @@
   justify-content: center;
   align-items: center;
   gap: 1rem;
+}
+
+.project-button-title {
+  color: var(--primary-bg);
+  font-family: var(--secondary-font);
+  margin-bottom: 0.5rem;
+}
+
+#projects-intro {
+  margin: 1.5rem 0;
+  font-family: var(--secondary-font);
+}
+
+.project-break {
+  width: 50vw;
+  border: none;
+  height: 2px;
+  background-color: var(--primary-bg);
+  margin: 1rem 0;
 }
 
 /* media queries */
@@ -307,5 +338,13 @@
     height: 50%;
     display: flex;
     flex-direction: column;
+  }
+
+  .modal-title {
+    font-size: 14px;
+  }
+  
+  .modal-text {
+    font-size: 12px;
   }
 }

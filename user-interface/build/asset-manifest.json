@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/portfolio/static/css/main.f2475266.css",
+    "main.js": "/portfolio/static/js/main.e027f76c.js",
+    "static/js/787.657801f3.chunk.js": "/portfolio/static/js/787.657801f3.chunk.js",
+    "static/media/animationimage.png": "/portfolio/static/media/animationimage.ca028e876d9452815811.png",
+    "static/media/spartygnomeimage.png": "/portfolio/static/media/spartygnomeimage.7ae5f883bcc792512202.png",
+    "static/media/reforestationmap.jpg": "/portfolio/static/media/reforestationmap.9613ffbdbdafb569f087.jpg",
+    "static/media/connectfourimage.png": "/portfolio/static/media/connectfourimage.9fcc22e97ba284c3e7e0.png",
+    "static/media/portrait.jpeg": "/portfolio/static/media/portrait.0dcd86a1f7597fc90145.jpeg",
+    "static/media/github.svg": "/portfolio/static/media/github.0028be492008453c166452edd75ba7d1.svg",
+    "static/media/linkedin.svg": "/portfolio/static/media/linkedin.df1e4a7bed655191326aa31ab822681e.svg",
+    "static/media/house.svg": "/portfolio/static/media/house.e51177a3c95c98ff608b85559f8453c7.svg",
+    "index.html": "/portfolio/index.html",
+    "static/media/email.svg": "/portfolio/static/media/email.fa2a0048b3532fb8c1f519eecee6d719.svg",
+    "main.f2475266.css.map": "/portfolio/static/css/main.f2475266.css.map",
+    "main.e027f76c.js.map": "/portfolio/static/js/main.e027f76c.js.map",
+    "787.657801f3.chunk.js.map": "/portfolio/static/js/787.657801f3.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f2475266.css",
+    "static/js/main.e027f76c.js"
+  ]
+}

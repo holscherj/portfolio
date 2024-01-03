@@ -1,7 +1,7 @@
 {
   "name": "user-interface",
   "version": "0.1.0",
-  "homepage": "https://jackholscher.com/portfolio",
+  "homepage": "https://jackholscher.com/",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.3",

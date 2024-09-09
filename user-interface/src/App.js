@@ -12,7 +12,9 @@ import capstone_image from "./assets/reforestationmap.jpg";
 import sparty_gnome from "./assets/spartygnomeimage.png";
 import connectfour_image from "./assets/connectfourimage.png";
 import animation_image from "./assets/animationimage.png";
-
+import toolkit_image from "./assets/crypttoolkitimage.png";
+import pantry_image from "./assets/smartpantryimage.png";
+import movie_image from "./assets/movietoolimage.png";
 
 /**
  * This function contains the code for the entire portfolio. 
@@ -90,12 +92,15 @@ function App() {
               </div>
             
               <div id="education-container">
-                <h4 id="school"> Michigan State University </h4>
+                <div id="school-grad-container">
+                  <h4 id="school"> Michigan State University </h4>
+                  <p id="graduation-container"> August 2024 </p>
+                </div>
+                
                 <hr />
                 <p id="degree"> Bachelor of Science, Computer Science </p>
-                <span id="graduation-container"> <p id="graduation"> Grad. August 2024 </p> </span>
+                
                 <p id="cognate"> Cognate in Social Science, Psychology </p>
-                <span id="graduation-container"> <p id="graduation"> Grad. August 2024 </p> </span>
                 <div className="info-container">
                   <span id="city-container">
                     <img src={city_ico} alt="Home Icon" loading="lazy" className="icon" />
@@ -306,6 +311,46 @@ function App() {
               image={animation_image}
               desc="A link to the popup info window about my animation system project"
             />
+            <hr className='project-break'/>
+            <ProjectButton
+              title="Cryptography Toolkit"
+              onClick={() => openModalWithProject({
+                title: "Encryption, Decryption, Hashing",
+                desc: "In order to put security principles into practice, I created a simple cryptography tookit \
+                using C++ and the OpenSSL library. The toolkit offers full functionality to the user for three different \
+                security techniques: RSA encryption/decryption, AES encryption/decryption, and SHA-256 hashing."
+              })}
+              image={toolkit_image}
+              desc="A link to the popup info window about my cryptography toolkit C++ project"
+            />
+            <hr className='project-break'/>
+            <ProjectButton
+              title="AI Smart Pantry"
+              onClick={() => openModalWithProject({
+                title: "Digital Pantry with AI Assistant",
+                desc: "For this project, I implemented a fully functional digital pantry. The pantry stores \
+                and tracks user groceries through the use of a barcode scanner. This inventory can then \
+                be viewed and modified, and used ingredients/items are added to a running grocery list. \
+                If the user needs inspriation for a recipe, they can utilize the GPT-3.5 AI assitant that will generate \
+                a step by step recipe for them based on what they have in their pantry. Updated imageg coming soon."
+              })}
+              image={pantry_image }
+              desc="A link to the popup info window about my smart pantry python project"
+            />
+            <hr className='project-break'/>
+            <ProjectButton
+              title="AI Movie Recommender"
+              onClick={() => openModalWithProject({
+                title: "AI Based Movie Recommendations",
+                desc: "This is a simple Python project to work on machine learning principles. Trained \
+                on data from almost 5,000 movies, the user simply has to enter a movie title that they enjoy, and the model \
+                will find 50 similar films from the database based on genre, cast, director, summary keywords, and \
+                original language. Updated image coming soon."
+              })}
+              image={movie_image}
+              desc="A link to the popup info window about my AI movie reccomendation project"
+            />
+
             <AnimatePresence initial={false} mode="wait" onExitComplete={() => null}>
               {
                 modalOpen

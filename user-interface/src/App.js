@@ -76,10 +76,10 @@ function App() {
             As a senior computer science student at Michigan State University, I am passionate
             about development, engineering, and working with software  systems of all kind.
             I am constantly exploring new technologies and seeking innovative solutions to
-            complex problems. Graduating in May of 2024, I aim to find an intership or full-time
+            complex problems. Graduated in August of 2024, I aim to find a full-time
             position in the field of software engineering. I present this digital portfolio as
             a way to highlight my past work and experiences as I learned and evolved through my
-            experience as a student.
+            years as a student.
           </p>
         </Fade>
 
@@ -93,9 +93,9 @@ function App() {
                 <h4 id="school"> Michigan State University </h4>
                 <hr />
                 <p id="degree"> Bachelor of Science, Computer Science </p>
-                <span id="graduation-container"> <p id="graduation"> Grad. May 2024 </p> </span>
+                <span id="graduation-container"> <p id="graduation"> Grad. August 2024 </p> </span>
                 <p id="cognate"> Cognate in Social Science, Psychology </p>
-                <span id="graduation-container"> <p id="graduation"> Grad. May 2024 </p> </span>
+                <span id="graduation-container"> <p id="graduation"> Grad. August 2024 </p> </span>
                 <div className="info-container">
                   <span id="city-container">
                     <img src={city_ico} alt="Home Icon" loading="lazy" className="icon" />
@@ -145,22 +145,22 @@ function App() {
               Welcome to the showcase of my technical proficiencies, a curated collection
               of skills that I have honed throughout my academic and personal endeavors in
               the realm of computer science. This section is more than just a testament to
-              my expertise; it's a reflection of my journey in mastering various programming
+              my expertise; it is a reflection of my journey in mastering various programming
               languages and technologies.
             </p>
           </Fade>
           <div id="skill-bar-container">
             <Fade triggerOnce cascade damping={0.05} direction='right'>
               <ProgressBar skill="Python" level="Advanced" percentage={100} />
-              <ProgressBar skill="C++" level="Advanced" percentage={100} />
               <ProgressBar skill="HTML/CSS/JavaScript" level="Advanced" percentage={100} />
+              <ProgressBar skill="C++" level="Advanced" percentage={85} />
               <ProgressBar skill="React.JS" level="Intermediate" percentage={80} />
               <ProgressBar skill="Java/Android" level="Intermediate" percentage={75} />
               <ProgressBar skill="Algorithms" level="Intermediate" percentage={75} />
               <ProgressBar skill="Data Structures" level="Intermediate" percentage={65} />
               <ProgressBar skill="Flask" level="Intermediate" percentage={60} />
-              <ProgressBar skill="C" level="Beginner" percentage={30} />
-              <ProgressBar skill="C#" level="Beginner" percentage={20} />
+              <ProgressBar skill="C#" level="Beginner" percentage={30} />
+              <ProgressBar skill="C" level="Beginner" percentage={20} />
             </Fade>
           
           </div>
@@ -174,8 +174,8 @@ function App() {
         
         <Fade triggerOnce cascade damping={0.05}>
           <Experience
-            title="Computer Science Capstone"
-            subtitle="Auto-Owners Exposition Award Winner"
+            title="Michigan State University CSE Capstone"
+            subtitle="Auto-Owners Design Day Exposition Award Winner"
             org="Anthropocene Institute"
             loc="Palo Alto, CA"
             start_date="August 2023"
@@ -191,8 +191,8 @@ function App() {
               and Mapbox GL JS
             </li>
             <li className="experience-bullet">
-              Wrote various scripts to collect data from the web as well as formatting
-              the data that was collected into a GeoJson format.
+              Wrote various scripts to collect data from the web as well as to format
+              the data that was collected into a GeoJson format
             </li>
           </Experience>
           <Experience
@@ -204,11 +204,10 @@ function App() {
             end_date="May 2023"
           >
             <li className="experience-bullet">
-              Worked in a team of peer assitants to advise a class of 180+ students on
-              various web application development techniques
+              Advised a class of 180+ students on various web application development techniques
             </li>
             <li className="experience-bullet">
-              Focuses on full-stack applications using HTML/CSS/JavaScript with a
+              Assisted students on full-stack applications using HTML/CSS/JavaScript with a
               Python Flask backend and a MySQL database
             </li>
             <li className="experience-bullet">
@@ -221,20 +220,19 @@ function App() {
             subtitle="Indoor Operations (Seasonal Employee)"
             org="The Loon Golf Resort"
             loc="Gaylord, MI"
-            start_date="June 2022"
-            end_date="August 2023"
+            start_date="May 2022"
+            end_date="Current"
           >
             <li className="experience-bullet">
-              Oversaw day-to-day operations of the golf course to ensure steady
-              and smooth pace of play.
+              Oversee day-to-day operations of the golf course to ensure steady
+              and smooth pace of play
             </li>
             <li className="experience-bullet">
-              Answered phone calls to provide customers and resort guests with
+              Provide customers and resort guests with
               assitance when needed, as well as to book tee times and reservations
             </li>
             <li className="experience-bullet">
-              Sold merchandise and equipment to the various golfers that we interested
-              in what the pro-shop had to offer.
+              Sell various pro-shop merchandise and equipment to interested golfers
             </li>
           </Experience>
         </Fade>
@@ -246,10 +244,9 @@ function App() {
       <section id="projects-container" className="subsection-container">
         <h3 className="subheading"> Projects </h3>
         <p id="projects-intro"> 
-          The following links contain information on various projects that I have worked on in 
-          different courses in the past. Through these assignments I have been able to apply my
-          learning in real-world development scenarios and challenges. Click on the images to view
-          a popup window with some more details on what the project entailed.
+          The following links contain information on various projects that I have worked on in past courses and my personal time.
+          Through these assignments, I have been able to apply my learning in real-world development challenges. 
+          Click on the images to view a popup window with additional details on what the project entailed.
         </p>
 
         <Fade triggerOnce>
@@ -259,7 +256,7 @@ function App() {
               onClick={() => openModalWithProject({
                 title: "Carbon Mapp - CSE Capstone",
                 desc: "In my final year of college, I had the opportunity to work with the Anthropocene Insitute \
-                to develop a web application for them that focused on the optimization of carbon dioxide removal \
+                to develop a web application for their company that focused on the optimization of carbon dioxide removal \
                 from the atmosphere. Using machine learning, my team and I were able to analyze large datasets \
                 containing geographical and financial data in order to determine the best locations in the country \
                 to implement three different carbon removal technologies: direct air capture, reforestation, and \
@@ -273,9 +270,9 @@ function App() {
               title="Sparty Gnome Platformer - CSE 335 Project 1"
               onClick={() => openModalWithProject({
                 title: "Sparty Gnome Platformer Game",
-                desc: "For the first project in my software design course, I worked in a group to develop \
+                desc: "For the first project in my software design course, I worked with a group to develop \
                 a three-level platformer game, similar to Super Mario. Using OOP principles/design, my team \
-                and I implemented everything from scratch, including the movement, levels, enemies, and powerups."
+                and I implemented all functionality from scratch, including the movement, levels, enemies, and powerups."
               })}
               image={sparty_gnome}
               desc="A link to the popup info window about my Sparty Gnome platformer game project"
@@ -286,10 +283,10 @@ function App() {
               onClick={() => openModalWithProject({
                 title: "Connect Four Online Mobile Game",
                 desc: "For the project in my mobile application design course, I worked with a group of peers \
-                to develop a fully online and responsive connect four game. After signing up, the users are \
-                prompted to sign in, which then puts them into the game room together. After playing and \
+                to develop a fully responsive online connect four game. After creating an account, the users are \
+                prompted to sign in, which then routes them into a game room together. After playing and \
                 confirming their move, the game board is updated on the opposing device. The layout and user \
-                interface responds and changes to fit devices of all sizes."
+                interface responds to fit devices of all sizes."
               })}
               image={connectfour_image}
               desc="A link to the popup info window abouut my Connect Four mobile game project"
@@ -300,7 +297,7 @@ function App() {
               onClick={() => openModalWithProject({
                 title: "Harold's Evil Laboratory - Animation System",
                 desc: "For the second project in my software design class, I worked individually to \
-                extend an animation system that we worked to develop earlier in the semester. \
+                extend an animation system that I developed earlier in the semester. \
                 The system comes with a set of pre-loaded scenes and actors, but allows for the addition \
                 of custom elements as well. Users can move/rotate the actors around the scenes, capturing \
                 keyframes as they go. Once finished, the animation/keyframe file can be saved, loaded, and \

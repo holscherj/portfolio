@@ -339,12 +339,24 @@
     display: flex;
     flex-direction: column;
   }
+}
 
+@media screen and (max-height: 500px) {
   .modal-title {
     font-size: 14px;
   }
   
   .modal-text {
     font-size: 12px;
+  }
+}
+
+@media screen and (max-height: 400px) {
+  .modal-title {
+    font-size: 14px;
+  }
+  
+  .modal-text {
+    font-size: 10px;
   }
 }

@@ -75,8 +75,8 @@ function App() {
         <Fade triggerOnce>
           <h3 className="subheading"> About </h3>
           <p id="about-text">
-            As a senior computer science student at Michigan State University, I am passionate
-            about development, engineering, and working with software  systems of all kind.
+            As a recent computer science graduate from Michigan State University, I am passionate
+            about development, engineering, and software systems of all kind.
             I am constantly exploring new technologies and seeking innovative solutions to
             complex problems. Graduated in August of 2024, I aim to find a full-time
             position in the field of software engineering. I present this digital portfolio as

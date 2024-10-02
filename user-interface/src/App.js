@@ -14,7 +14,7 @@ import connectfour_image from "./assets/connectfourimage.png";
 import animation_image from "./assets/animationimage.png";
 import toolkit_image from "./assets/crypttoolkitimage.png";
 import pantry_image from "./assets/smartpantryimage.png";
-import movie_image from "./assets/movietoolimage.png";
+import movie_image from "./assets/movietoolimage.PNG";
 
 /**
  * This function contains the code for the entire portfolio. 

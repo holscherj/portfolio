@@ -332,7 +332,7 @@ function App() {
                 and tracks user groceries through the use of a barcode scanner. This inventory can then \
                 be viewed and modified, and used ingredients/items are added to a running grocery list. \
                 If the user needs inspriation for a recipe, they can utilize the GPT-3.5 AI assitant that will generate \
-                a step by step recipe for them based on what they have in their pantry. Updated imageg coming soon."
+                a step by step recipe for them based on what they have in their pantry."
               })}
               image={pantry_image }
               desc="A link to the popup info window about my smart pantry python project"
@@ -345,7 +345,7 @@ function App() {
                 desc: "This is a simple Python project to work on machine learning principles. Trained \
                 on data from almost 5,000 movies, the user simply has to enter a movie title that they enjoy, and the model \
                 will find 50 similar films from the database based on genre, cast, director, summary keywords, and \
-                original language. Updated image coming soon."
+                original language."
               })}
               image={movie_image}
               desc="A link to the popup info window about my AI movie reccomendation project"

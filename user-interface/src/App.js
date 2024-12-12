@@ -15,6 +15,7 @@ import animation_image from "./assets/animationimage.png";
 import toolkit_image from "./assets/crypttoolkitimage.png";
 import pantry_image from "./assets/smartpantryimage.png";
 import movie_image from "./assets/movietoolimage.PNG";
+import house_plant from "./assets/houseplant.jpg";
 
 /**
  * This function contains the code for the entire portfolio. 
@@ -349,6 +350,28 @@ function App() {
               })}
               image={movie_image}
               desc="A link to the popup info window about my AI movie reccomendation project"
+            />
+            <hr className='project-break'/>
+            <ProjectButton
+              title="Indoor Gardening Tool"
+              onClick={() => openModalWithProject({
+                title: "House Plant",
+                desc: "This project is a simple yet functional mobile application built using the \
+                 Flutter framework. The goal was to familiarize myself with Flutter's capabilities \
+                 while developing a user-friendly app to help plant enthusiasts keep track of their \
+                 house plants. The app features a dynamic dashboard that displays a database of \
+                 house plants, complete with essential care information such as watering and \
+                 sunlight requirements, as well as growth cycles. Users can interact with the plant \
+                 listings by tapping on individual plants to view more detailed information. If they \
+                 find a plant they’d like to grow in real life, they can easily 'favorite' it and add \
+                 it to their virtual garden. A dedicated tab in the app’s navigation rail allows users \
+                 to access their personal garden and view all their favorited plants in one place. This \
+                 project gave me hands-on experience with Flutter’s powerful widgets, state management, \
+                 and database integration, and it was a great opportunity to practice creating intuitive, \
+                 responsive mobile interfaces."
+              })}
+              image={house_plant}
+              desc="A link to the popup info window about my home gardening tool project"
             />
 
             <AnimatePresence initial={false} mode="wait" onExitComplete={() => null}>

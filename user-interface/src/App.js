@@ -16,6 +16,7 @@ import toolkit_image from "./assets/crypttoolkitimage.png";
 import pantry_image from "./assets/smartpantryimage.png";
 import movie_image from "./assets/movietoolimage.PNG";
 import house_plant from "./assets/houseplant.jpg";
+import shell_image from "./assets/shellimage.png";
 
 /**
  * This function contains the code for the entire portfolio. 
@@ -373,6 +374,21 @@ function App() {
               image={house_plant}
               desc="A link to the popup info window about my home gardening tool project"
             />
+            <hr className='project-break'/>
+            <ProjectButton
+              title="Basic UNIX Shell"
+              onClick={() => openModalWithProject({
+                title: "Simple UNIX Shell Written in C",
+                desc: "I built a simple UNIX shell in C to deepen my understanding of operating \
+                systems and process management. This project implements core shell functionalities, \
+                including reading user input, parsing commands, and executing them using fork() \
+                and execvp(). It supports basic commands like ls, echo, and pwd, along with error \
+                handling for invalid inputs. Through this project, I gained hands-on experience with \
+                system calls, memory management, and process control in a Linux environment."
+              })}
+              image={shell_image}
+              desc="A link to the popup info window about my UNIX shell project"
+            />
 
             <AnimatePresence initial={false} mode="wait" onExitComplete={() => null}>
               {
@@ -484,7 +500,7 @@ const Modal = ({ handleClose, text, title }) => {
       >
         <h2 className='modal-title'> {title} </h2>
         <p className='modal-text'> {text} </p>
-        <button onClick={handleClose}> Close </button>
+        <button onClick={handleClose} className='modal-button'> Close </button>
       </motion.div>
     </Backdrop>
   );

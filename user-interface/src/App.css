@@ -98,6 +98,7 @@
 
 #portrait-container img {
   width: 100%;
+  max-width: 700px;
   height: auto;
   object-fit: cover;
   object-position: center;
@@ -246,15 +247,21 @@
 }
 
 .project-modal {
-  width: clamp(50%, 700px, 90%);
-  height: min(60%, 400px);
+  max-width: 90vw;
+  max-height: 80vh;
   background-color: var(--primary-bg);
   margin: auto;
-  padding: 0 2rem;
+  padding: 40px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-y: auto;
+}
+
+.modal-button {
+  margin-top: 20px;
+  padding: 10px 40px;
 }
 
 .modal-title {

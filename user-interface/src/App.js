@@ -14,9 +14,10 @@ import connectfour_image from "./assets/connectfourimage.png";
 import animation_image from "./assets/animationimage.png";
 import toolkit_image from "./assets/crypttoolkitimage.png";
 import pantry_image from "./assets/smartpantryimage.png";
-import movie_image from "./assets/movietoolimage.PNG";
+import movie_image from "./assets/movietoolimage.png";
 import house_plant from "./assets/houseplant.jpg";
 import shell_image from "./assets/shellimage.png";
+import cocktaild_image from './assets/cocktaild.JPG'
 
 /**
  * This function contains the code for the entire portfolio. 
@@ -388,6 +389,22 @@ function App() {
               })}
               image={shell_image}
               desc="A link to the popup info window about my UNIX shell project"
+            />
+
+            <ProjectButton 
+              title="Cocktaild"
+              onClick={() => openModalWithProject({
+                title: "A Daily Cocktail Guessing Game",
+                desc: "Cocktaild is a daily cocktail guessing game inspired by Wordle. Players get 6 \
+                attempts to identify a mystery cocktail, with each wrong guess revealing a new clue: glassware, \
+                category, appearance, ingredients, base spirit, and a photo. Built with Next.js 14 (App Router) \
+                and TypeScript, styled with Tailwind CSS and shadcn/ui. Game state persists via localStorage with \
+                cross-device sync for authenticated users through Supabase. Auth supports email/password and Google OAuth. \
+                Player stats, guess distributions, streaks, and a cocktail favorites collection are all stored in Supabase \
+                with row-level security. Deployed to Vercel with zero-config CI/CD on push."
+              })}
+              image={cocktaild_image}
+              desc="A link to the pop info window about my daily cocktail guessing game project"
             />
 
             <AnimatePresence initial={false} mode="wait" onExitComplete={() => null}>

@@ -29,7 +29,7 @@ import cocktaild_image from './assets/cocktaild.JPG'
  */
 function App() {
   const [modalOpen, setModalOpen] = useState(false);
-  const [currentProject, setCurrentProject] = useState({ title: '', desc: '' });
+  const [currentProject, setCurrentProject] = useState({ title: '', desc: '', link: null });
 
   const openModalWithProject = (project) => {
     setCurrentProject(project);
@@ -58,7 +58,7 @@ function App() {
                 2250,
                 "I am an Engineer",
                 2250,
-                "I am a Computer Scientist",
+                "I am a Software Engineer",
                 2250,
                 "I am a Problem Solver",
                 2250
@@ -78,13 +78,12 @@ function App() {
         <Fade triggerOnce>
           <h3 className="subheading"> About </h3>
           <p id="about-text">
-            As a recent computer science graduate from Michigan State University, I am passionate
-            about development, engineering, and software systems of all kind.
-            I am constantly exploring new technologies and seeking innovative solutions to
-            complex problems. Graduated in August of 2024, I aim to find a full-time
-            position in the field of software engineering. I present this digital portfolio as
-            a way to highlight my past work and experiences as I learned and evolved through my
-            years as a student.
+            I'm a software engineer with a year of professional experience, working primarily
+            on full-stack web applications. I graduated from Michigan State University in August
+            2024 with a degree in Computer Science and have been building production software
+            since. I'm always looking for new technologies to dig into and enjoy working on
+            problems that go beyond the surface level. This portfolio highlights the projects
+            and experiences that got me to where I am.
           </p>
         </Fade>
 
@@ -107,7 +106,7 @@ function App() {
                 <div className="info-container">
                   <span id="city-container">
                     <img src={city_ico} alt="Home Icon" loading="lazy" className="icon" />
-                    <p id="city"> Gaylord, Michigan </p>
+                    <p id="city"> Metro Detroit </p>
                   </span>
                   <span id="email-container">
                     <img src={email_ico} alt="Email Icon" loading="lazy" className="icon" />
@@ -150,25 +149,24 @@ function App() {
           <Fade triggerOnce>
             <h3 className="subheading"> Skills </h3>
             <p id="skills-text">
-              Welcome to the showcase of my technical proficiencies, a curated collection
-              of skills that I have honed throughout my academic and personal endeavors in
-              the realm of computer science. This section is more than just a testament to
-              my expertise; it is a reflection of my journey in mastering various programming
-              languages and technologies.
+              Here's a look at the languages and technologies I've worked with, both
+              professionally and in my own time. The bars reflect my honest self-assessment
+              of where I stand with each.
             </p>
           </Fade>
           <div id="skill-bar-container">
             <Fade triggerOnce cascade damping={0.05} direction='right'>
               <ProgressBar skill="Python" level="Advanced" percentage={100} />
-              <ProgressBar skill="HTML/CSS/JavaScript" level="Advanced" percentage={100} />
+              <ProgressBar skill="HTML / CSS / JavaScript" level="Advanced" percentage={100} />
+              <ProgressBar skill="React.JS" level="Advanced" percentage={95} />
+              <ProgressBar skill="TypeScript" level="Advanced" percentage={90} />
+              <ProgressBar skill="Node.js / Express" level="Advanced" percentage={85} />
               <ProgressBar skill="C++" level="Advanced" percentage={85} />
-              <ProgressBar skill="React.JS" level="Intermediate" percentage={80} />
-              <ProgressBar skill="Java/Android" level="Intermediate" percentage={75} />
-              <ProgressBar skill="Algorithms" level="Intermediate" percentage={75} />
-              <ProgressBar skill="Data Structures" level="Intermediate" percentage={65} />
-              <ProgressBar skill="Flask" level="Intermediate" percentage={60} />
-              <ProgressBar skill="C#" level="Beginner" percentage={30} />
-              <ProgressBar skill="C" level="Beginner" percentage={20} />
+              <ProgressBar skill="SQL / Databases" level="Intermediate" percentage={75} />
+              <ProgressBar skill="Java / Spring Boot" level="Intermediate" percentage={70} />
+              <ProgressBar skill="AWS" level="Intermediate" percentage={70} />
+              <ProgressBar skill="GitLab CI/CD / Terraform" level="Intermediate" percentage={70} />
+              <ProgressBar skill="Next.js" level="Intermediate" percentage={65} />
             </Fade>
           
           </div>
@@ -181,6 +179,33 @@ function App() {
         <h3 className="subheading"> Experience </h3>
         
         <Fade triggerOnce cascade damping={0.05}>
+          <Experience
+            title="Full-Stack Software Engineer"
+            org="Ally Financial"
+            loc="Metro Detroit, MI"
+            start_date="March 2025"
+            end_date="Present"
+          >
+            <li className="experience-bullet">
+              Build and maintain a React/TypeScript web application with a Node.js/Express
+              backend, serving as the primary user-facing layer in a platform of loosely
+              coupled, independently deployable microservices
+            </li>
+            <li className="experience-bullet">
+              Design and develop REST APIs consumed across multiple services in the platform
+            </li>
+            <li className="experience-bullet">
+              Work extensively with AWS across deployments, load balancing/scaling, S3,
+              VPC, IAM, and Secrets Manager
+            </li>
+            <li className="experience-bullet">
+              Contribute to Java/Spring Boot services and support ETL pipelines built
+              with Pentaho Data Integration
+            </li>
+            <li className="experience-bullet">
+              Manage infrastructure and CI/CD pipelines through GitLab and Terraform
+            </li>
+          </Experience>
           <Experience
             title="Michigan State University CSE Capstone"
             subtitle="Auto-Owners Design Day Exposition Award Winner"
@@ -223,26 +248,6 @@ function App() {
               question and answer form
             </li>
           </Experience>
-          <Experience
-            title="Golf Course Management Assistant"
-            subtitle="Indoor Operations (Seasonal Employee)"
-            org="The Loon Golf Resort"
-            loc="Gaylord, MI"
-            start_date="May 2022"
-            end_date="Current"
-          >
-            <li className="experience-bullet">
-              Oversee day-to-day operations of the golf course to ensure steady
-              and smooth pace of play
-            </li>
-            <li className="experience-bullet">
-              Provide customers and resort guests with
-              assitance when needed, as well as to book tee times and reservations
-            </li>
-            <li className="experience-bullet">
-              Sell various pro-shop merchandise and equipment to interested golfers
-            </li>
-          </Experience>
         </Fade>
       </section>
 
@@ -251,147 +256,14 @@ function App() {
       */}
       <section id="projects-container" className="subsection-container">
         <h3 className="subheading"> Projects </h3>
-        <p id="projects-intro"> 
-          The following links contain information on various projects that I have worked on in past courses and my personal time.
-          Through these assignments, I have been able to apply my learning in real-world development challenges. 
-          Click on the images to view a popup window with additional details on what the project entailed.
+        <p id="projects-intro">
+          A collection of projects built throughout my time in school and on my own.
+          Click on any image to see more details.
         </p>
 
         <Fade triggerOnce>
           <div className='project-links'>
             <ProjectButton
-              title="Carbon Mapp - CSE Capstone"
-              onClick={() => openModalWithProject({
-                title: "Carbon Mapp - CSE Capstone",
-                desc: "In my final year of college, I had the opportunity to work with the Anthropocene Insitute \
-                to develop a web application for their company that focused on the optimization of carbon dioxide removal \
-                from the atmosphere. Using machine learning, my team and I were able to analyze large datasets \
-                containing geographical and financial data in order to determine the best locations in the country \
-                to implement three different carbon removal technologies: direct air capture, reforestation, and \
-                kelp farms. The output from the model is displayed on an interactive heatmap of the United States."
-              })}
-              image={capstone_image}
-              desc="A link to the popup info window about my CSE Capstone project"
-            />
-            <hr className='project-break'/>
-            <ProjectButton
-              title="Sparty Gnome Platformer - CSE 335 Project 1"
-              onClick={() => openModalWithProject({
-                title: "Sparty Gnome Platformer Game",
-                desc: "For the first project in my software design course, I worked with a group to develop \
-                a three-level platformer game, similar to Super Mario. Using OOP principles/design, my team \
-                and I implemented all functionality from scratch, including the movement, levels, enemies, and powerups."
-              })}
-              image={sparty_gnome}
-              desc="A link to the popup info window about my Sparty Gnome platformer game project"
-            />
-            <hr className='project-break'/>
-            <ProjectButton
-              title="Connect Four Mobile Game - CSE 476 Project 1"
-              onClick={() => openModalWithProject({
-                title: "Connect Four Online Mobile Game",
-                desc: "For the project in my mobile application design course, I worked with a group of peers \
-                to develop a fully responsive online connect four game. After creating an account, the users are \
-                prompted to sign in, which then routes them into a game room together. After playing and \
-                confirming their move, the game board is updated on the opposing device. The layout and user \
-                interface responds to fit devices of all sizes."
-              })}
-              image={connectfour_image}
-              desc="A link to the popup info window abouut my Connect Four mobile game project"
-            />
-            <hr className='project-break' />
-            <ProjectButton
-              title="Animation System - CSE 335 Project 2"
-              onClick={() => openModalWithProject({
-                title: "Harold's Evil Laboratory - Animation System",
-                desc: "For the second project in my software design class, I worked individually to \
-                extend an animation system that I developed earlier in the semester. \
-                The system comes with a set of pre-loaded scenes and actors, but allows for the addition \
-                of custom elements as well. Users can move/rotate the actors around the scenes, capturing \
-                keyframes as they go. Once finished, the animation/keyframe file can be saved, loaded, and \
-                played from the system."
-              })}
-              image={animation_image}
-              desc="A link to the popup info window about my animation system project"
-            />
-            <hr className='project-break'/>
-            <ProjectButton
-              title="Cryptography Toolkit"
-              onClick={() => openModalWithProject({
-                title: "Encryption, Decryption, Hashing",
-                desc: "In order to put security principles into practice, I created a simple cryptography tookit \
-                using C++ and the OpenSSL library. The toolkit offers full functionality to the user for three different \
-                security techniques: RSA encryption/decryption, AES encryption/decryption, and SHA-256 hashing."
-              })}
-              image={toolkit_image}
-              desc="A link to the popup info window about my cryptography toolkit C++ project"
-            />
-            <hr className='project-break'/>
-            <ProjectButton
-              title="AI Smart Pantry"
-              onClick={() => openModalWithProject({
-                title: "Digital Pantry with AI Assistant",
-                desc: "For this project, I implemented a fully functional digital pantry. The pantry stores \
-                and tracks user groceries through the use of a barcode scanner. This inventory can then \
-                be viewed and modified, and used ingredients/items are added to a running grocery list. \
-                If the user needs inspriation for a recipe, they can utilize the GPT-3.5 AI assitant that will generate \
-                a step by step recipe for them based on what they have in their pantry. "
-              })}
-              image={pantry_image }
-              desc="A link to the popup info window about my smart pantry python project"
-            />
-            <hr className='project-break'/>
-            <ProjectButton
-              title="AI Movie Recommender"
-              onClick={() => openModalWithProject({
-                title: "AI Based Movie Recommendations",
-                desc: "This is a simple Python project to work on machine learning principles. Trained \
-                on data from almost 5,000 movies, the user simply has to enter a movie title that they enjoy, and the model \
-                will find 50 similar films from the database based on genre, cast, director, summary keywords, and \
-                original language. "
-              })}
-              image={movie_image}
-              desc="A link to the popup info window about my AI movie reccomendation project"
-            />
-            <hr className='project-break'/>
-            <ProjectButton
-              title="Indoor Gardening Tool"
-              onClick={() => openModalWithProject({
-                title: "House Plant",
-                desc: "This project is a simple yet functional mobile application built using the \
-                 Flutter framework. The goal was to familiarize myself with Flutter's capabilities \
-                 while developing a user-friendly app to help plant enthusiasts keep track of their \
-                 house plants. The app features a dynamic dashboard that displays a database of \
-                 house plants, complete with essential care information such as watering and \
-                 sunlight requirements, as well as growth cycles. Users can interact with the plant \
-                 listings by tapping on individual plants to view more detailed information. If they \
-                 find a plant they’d like to grow in real life, they can easily 'favorite' it and add \
-                 it to their virtual garden. A dedicated tab in the app’s navigation rail allows users \
-                 to access their personal garden and view all their favorited plants in one place. This \
-                 project gave me hands-on experience with Flutter’s powerful widgets, state management, \
-                 and database integration, and it was a great opportunity to practice creating intuitive, \
-                 responsive mobile interfaces."
-              })}
-              image={house_plant}
-              desc="A link to the popup info window about my home gardening tool project"
-            />
-            <hr className='project-break'/>
-            <ProjectButton
-              title="Basic UNIX Shell"
-              onClick={() => openModalWithProject({
-                title: "Simple UNIX Shell Written in C",
-                desc: "I built a simple UNIX shell in C to deepen my understanding of operating \
-                systems and process management. This project implements core shell functionalities, \
-                including reading user input, parsing commands, and executing them using fork() \
-                and execvp(). It supports basic commands like ls, echo, and pwd, along with error \
-                handling for invalid inputs. Through this project, I gained hands-on experience with \
-                system calls, memory management, and process control in a Linux environment."
-              })}
-              image={shell_image}
-              desc="A link to the popup info window about my UNIX shell project"
-            />
-
-            <ProjectButton 
               title="Cocktaild"
               onClick={() => openModalWithProject({
                 title: "A Daily Cocktail Guessing Game",
@@ -401,10 +273,124 @@ function App() {
                 and TypeScript, styled with Tailwind CSS and shadcn/ui. Game state persists via localStorage with \
                 cross-device sync for authenticated users through Supabase. Auth supports email/password and Google OAuth. \
                 Player stats, guess distributions, streaks, and a cocktail favorites collection are all stored in Supabase \
-                with row-level security. Deployed to Vercel with zero-config CI/CD on push."
+                with row-level security. Deployed to Vercel with zero-config CI/CD on push.",
+                link: "https://playcocktaild.com"
               })}
               image={cocktaild_image}
-              desc="A link to the pop info window about my daily cocktail guessing game project"
+              desc="A link to the popup info window about my daily cocktail guessing game project"
+            />
+            <hr className='project-break'/>
+            <ProjectButton
+              title="Carbon Mapp - CSE Capstone"
+              onClick={() => openModalWithProject({
+                title: "Carbon Mapp - CSE Capstone",
+                desc: "In my final year of college, I worked with the Anthropocene Institute to build a web \
+                application focused on optimizing carbon dioxide removal from the atmosphere. Using machine learning, \
+                my team analyzed large datasets of geographical and financial data to determine the best locations \
+                in the country for three carbon removal technologies: direct air capture, reforestation, and kelp farms. \
+                Results are displayed on an interactive heatmap of the United States, highlighting data at the state and county levels."
+              })}
+              image={capstone_image}
+              desc="A link to the popup info window about my CSE Capstone project"
+            />
+            <hr className='project-break'/>
+            <ProjectButton
+              title="AI Smart Pantry"
+              onClick={() => openModalWithProject({
+                title: "Digital Pantry with AI Assistant",
+                desc: "A fully functional digital pantry that tracks groceries using a barcode scanner. \
+                The inventory can be viewed and modified, and used items are automatically added to a running \
+                grocery list. A GPT-3.5 powered assistant can generate step-by-step recipes based on whatever \
+                is currently in your pantry."
+              })}
+              image={pantry_image}
+              desc="A link to the popup info window about my smart pantry python project"
+            />
+            <hr className='project-break'/>
+            <ProjectButton
+              title="AI Movie Recommender"
+              onClick={() => openModalWithProject({
+                title: "AI Based Movie Recommendations",
+                desc: "A Python project built to explore content-based filtering and machine learning. \
+                Trained on data from nearly 5,000 movies, users enter a title they enjoy and the model returns \
+                50 similar films based on genre, cast, director, keywords, and original language."
+              })}
+              image={movie_image}
+              desc="A link to the popup info window about my AI movie recommendation project"
+            />
+            <hr className='project-break'/>
+            <ProjectButton
+              title="Connect Four Mobile Game"
+              onClick={() => openModalWithProject({
+                title: "Connect Four Online Mobile Game",
+                desc: "Built with a group for my mobile application design course, this is a fully responsive \
+                online Connect Four game. After signing in, players are routed into a shared game room where \
+                each move syncs to the opponent's device in real time. The layout adapts to fit screens of all sizes."
+              })}
+              image={connectfour_image}
+              desc="A link to the popup info window about my Connect Four mobile game project"
+            />
+            <hr className='project-break'/>
+            <ProjectButton
+              title="Indoor Gardening Tool"
+              onClick={() => openModalWithProject({
+                title: "House Plant",
+                desc: "A mobile app built with Flutter to help plant enthusiasts keep track of their \
+                house plants. Features a browsable database of plants with care info like watering schedules, \
+                sunlight needs, and growth cycles. Users can tap into any plant for more detail, favorite ones \
+                they want to grow, and manage their personal garden from a dedicated tab."
+              })}
+              image={house_plant}
+              desc="A link to the popup info window about my home gardening tool project"
+            />
+            <hr className='project-break'/>
+            <ProjectButton
+              title="Cryptography Toolkit"
+              onClick={() => openModalWithProject({
+                title: "Encryption, Decryption, Hashing",
+                desc: "A cryptography toolkit written in C++ using the OpenSSL library. It provides full \
+                implementations of three security techniques: RSA encryption/decryption, AES encryption/decryption, \
+                and SHA-256 hashing."
+              })}
+              image={toolkit_image}
+              desc="A link to the popup info window about my cryptography toolkit C++ project"
+            />
+            <hr className='project-break'/>
+            <ProjectButton
+              title="Basic UNIX Shell"
+              onClick={() => openModalWithProject({
+                title: "Simple UNIX Shell Written in C",
+                desc: "A simple UNIX shell written in C. Implements core shell functionality: reading \
+                input, parsing commands, and executing them using fork() and execvp(). Supports standard \
+                commands like ls, echo, and pwd with error handling for invalid inputs."
+              })}
+              image={shell_image}
+              desc="A link to the popup info window about my UNIX shell project"
+            />
+            <hr className='project-break'/>
+            <ProjectButton
+              title="Sparty Gnome Platformer"
+              onClick={() => openModalWithProject({
+                title: "Sparty Gnome Platformer Game",
+                desc: "Built with a group in my software design course, this is a three-level platformer game \
+                written in C++ using OOP design principles. My team implemented everything from scratch: \
+                movement, levels, enemies, and powerups."
+              })}
+              image={sparty_gnome}
+              desc="A link to the popup info window about my Sparty Gnome platformer game project"
+            />
+            <hr className='project-break'/>
+            <ProjectButton
+              title="Animation System"
+              onClick={() => openModalWithProject({
+                title: "Harold's Evil Laboratory - Animation System",
+                desc: "An animation system built individually as part of my software design course. It comes \
+                with pre-loaded scenes and actors, but supports custom elements as well. Users can move and \
+                rotate actors across scenes, capturing keyframes as they go. Finished animations can be saved, \
+                loaded, and played back from within the system."
+              })}
+              image={animation_image}
+              desc="A link to the popup info window about my animation system project"
             />
 
             <AnimatePresence initial={false} mode="wait" onExitComplete={() => null}>
@@ -416,6 +402,7 @@ function App() {
                   handleClose={close}
                   text={currentProject.desc}
                   title={currentProject.title}
+                  link={currentProject.link}
                 />
               }
             </AnimatePresence>
@@ -458,7 +445,7 @@ const Experience = (props) => {
   return (
     <div className='experience-container'>
       <h4 className="experience-title"> {props.title} </h4>
-      <h5 className="experience-subtitle"> {props.subtitle} </h5>
+      {props.subtitle && <h5 className="experience-subtitle"> {props.subtitle} </h5>}
       <h5 className="experience-org"> <em> <b> {props.org} </b> ({props.loc}) </em>  </h5>
       <h5 className="experience-date"> {props.start_date} - {props.end_date} </h5>
 
@@ -504,7 +491,7 @@ const dropIn = {
   }
 };
 
-const Modal = ({ handleClose, text, title }) => {
+const Modal = ({ handleClose, text, title, link }) => {
   return (
     <Backdrop onClick={handleClose}>
       <motion.div
@@ -518,6 +505,7 @@ const Modal = ({ handleClose, text, title }) => {
         <h2 className='modal-title'> {title} </h2>
         <p className='modal-text'> {text} </p>
         <button onClick={handleClose} className='modal-button'> Close </button>
+        {link && <button onClick={() => window.open(link, '_blank', 'noreferrer')} className='modal-button'> Try it Out </button>}
       </motion.div>
     </Backdrop>
   );
